@@ -113,7 +113,3 @@ Supports Windows, macOS, Linux, FreeBSD, DragonFly BSD, NetBSD, OpenBSD, and Sun
 ![macos.png](https://github.com/samuelvenable/libfiledialogs/blob/main/macos.png?raw=true)
 
 ![linux.png](https://github.com/samuelvenable/libfiledialogs/blob/main/linux.png?raw=true)
-
-![sunos.png](https://github.com/samuelvenable/libfiledialogs/blob/main/sunos.png?raw=true)
-
-![openbsd.png](https://github.com/samuelvenable/libfiledialogs/blob/main/openbsd.png?raw=true)
