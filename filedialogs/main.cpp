@@ -214,8 +214,9 @@ namespace {
   };
   
   void resources_init() {
-    CreateDirectoryA("C:\\Windows\\Temp\\filedialogs", nullptr);
-    CreateDirectoryA("C:\\Windows\\Temp\\filedialogs\\fonts", nullptr);
+    ngs::fs::directory_set_current_working(ngs::fs::executable_get_directory());
+    CreateDirectoryA(".\\filedialogs", nullptr);
+    CreateDirectoryA(".\\filedialogs\\fonts", nullptr);
     for (int i = 0; i < 159; i++) {
       res[i] = FindResource(nullptr, MAKEINTRESOURCE(i + 1), RT_RCDATA);
       if (!res[i]) return;
@@ -225,7 +226,7 @@ namespace {
       if (!siz) return;
       buf[i]  = LockResource(glb[i]);
       if (!buf[i]) return;
-      std::ofstream outfile(("C:\\Windows\\Temp\\" + pth[i]).c_str(), std::ios::binary);
+      std::ofstream outfile((".\\" + pth[i]).c_str(), std::ios::binary);
       if (!outfile.is_open()) return;
       outfile.write((char *)buf[i], siz[i]);
       outfile.close();
@@ -248,7 +249,7 @@ int main(int argc, const char **argv) {
   resources_init();
   if (ngs::fs::environment_get_variable("IMGUI_FONT_PATH").empty() && 
   ngs::fs::environment_get_variable("IMGUI_FONT_FILES").empty()) {
-    ngs::fs::environment_set_variable("IMGUI_FONT_PATH", "C:\\Windows\\Temp\\filedialogs\\fonts\\");
+    ngs::fs::environment_set_variable("IMGUI_FONT_PATH", ".\\filedialogs\\fonts\\");
   }
   #elif defined(__APPLE__) && defined(__MACH__)
   [[NSApplication sharedApplication] setActivationPolicy:(NSApplicationActivationPolicy)1];
