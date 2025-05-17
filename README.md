@@ -4,7 +4,7 @@ Contact me on [Discord](https://discord.com) if you have any comments, questions
 
 ```
 /*
-** Alternative main.cpp - replace libfiledialogs/filedialogs/main.cpp with this exact code
+** Alternative main.cpp - replace libfiledialogs/libfiledialogs/main.cpp with this exact code
 ** then if on Windows open the solution in Visual Studio and build with that otherwise run
 ** the build.sh script if you are building with g++ or clang++, depending on the target OS
 */
@@ -108,12 +108,12 @@ int main() {
 
 Supports Windows, macOS, Linux, FreeBSD, DragonFly BSD, NetBSD, OpenBSD, and SunOS. 
 
-![win32.png](https://github.com/samuelvenable/filedialogs/blob/main/win32.png?raw=true)
+![win32.png](https://github.com/samuelvenable/libfiledialogs/blob/main/win32.png?raw=true)
 
-![macos.png](https://github.com/samuelvenable/filedialogs/blob/main/macos.png?raw=true)
+![macos.png](https://github.com/samuelvenable/libfiledialogs/blob/main/macos.png?raw=true)
 
-![linux.png](https://github.com/samuelvenable/filedialogs/blob/main/linux.png?raw=true)
+![linux.png](https://github.com/samuelvenable/libfiledialogs/blob/main/linux.png?raw=true)
 
-![sunos.png](https://github.com/samuelvenable/filedialogs/blob/main/sunos.png?raw=true)
+![sunos.png](https://github.com/samuelvenable/libfiledialogs/blob/main/sunos.png?raw=true)
 
-![openbsd.png](https://github.com/samuelvenable/filedialogs/blob/main/openbsd.png?raw=true)
+![openbsd.png](https://github.com/samuelvenable/libfiledialogs/blob/main/openbsd.png?raw=true)
