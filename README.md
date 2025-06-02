@@ -4,7 +4,9 @@ Contact me on [Discord](https://discord.com) if you have any comments, questions
 
 ```
 /*
-** Alternative main.cpp - replace "SDL2-ImGui-FileDialogs/filedialogs/main.cpp" with this exact code
+** Alternative main.cpp - replace libfiledialogs/libfiledialogs/main.cpp with this exact code
+** then if on Windows open the solution in Visual Studio and build with that otherwise run
+** the build.sh script if you are building with g++ or clang++, depending on the target OS
 */
 
 #include <iostream> // std::cout, std::endl
