@@ -299,7 +299,7 @@ namespace {
     if (!rendererInfoError) {
        const char *rendererName = rendererInfo.name;
        if (rendererName) {
-         //SDL_Log("Renderer: %s", rendererName);
+         //printf("Renderer: %s", rendererName);
        }
     }
     IMGUI_CHECKVERSION();
