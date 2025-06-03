@@ -294,6 +294,14 @@ namespace {
     SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
     if (renderer == nullptr) return "";
+    SDL_RendererInfo rendererInfo;
+    int rendererInfoError = SDL_GetRendererInfo(renderer, &rendererInfo);
+    if (!rendererInfoError) {
+       const char *rendererName = rendererInfo.name;
+       if (rendererName) {
+         //SDL_Log("Renderer: %s", rendererName);
+       }
+    }
     IMGUI_CHECKVERSION();
     if (!shared_font_atlas)
       shared_font_atlas = new ImFontAtlas();
