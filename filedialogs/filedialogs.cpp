@@ -525,8 +525,8 @@ namespace {
           RECT childFrame; GetWindowRect(hWnd, &childFrame);
           int childFrameWidth = childFrame.right - childFrame.left;
           int childFrameHeight = childFrame.bottom - childFrame.top;
-          MoveWindow(hWnd, (parentFrame.left + (parentFrameWidth / 2)) - (childFrameWidth / 2),
-          (parentFrame.top + (parentFrameHeight / 2)) - (childFrameHeight / 2), childFrameWidth, childFrameHeight, TRUE);
+          SDL_SetWindowPosition(window, (parentFrame.left + (parentFrameWidth / 2)) - (childFrameWidth / 2),
+          (parentFrame.top + (parentFrameHeight / 2)) - (childFrameHeight / 2));
           PostMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)GetIcon((HWND)(void *)(std::uintptr_t)strtoull(
           ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").c_str(), nullptr, 10)));
         }
