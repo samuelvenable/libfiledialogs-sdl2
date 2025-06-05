@@ -547,10 +547,9 @@ namespace {
           addChildWindow:nsWnd ordered:NSWindowAbove];
           NSRect parentFrame = [(NSWindow *)(void *)(std::uintptr_t)strtoull(
           ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").c_str(), nullptr, 10) frame];
-          NSRect childFrame = [nsWnd frame]; [nsWnd setFrame:NSMakeRect(
+          NSRect childFrame = [nsWnd frame]; SDL_SetWindowPosition(window, 
           (parentFrame.origin.x + (parentFrame.size.width / 2)) - (childFrame.size.width / 2),
-          (parentFrame.origin.y + (parentFrame.size.height / 2)) - (childFrame.size.height / 2),
-          childFrame.size.width, childFrame.size.height) display:YES];
+          (parentFrame.origin.y + (parentFrame.size.height / 2)) - (childFrame.size.height / 2));
           [nsWnd makeKeyAndOrderFront:nil];
         }
         #elif ((defined(__linux__) && !defined(__ANDROID__)) || (defined(__FreeBSD__) || defined(__DragonFly__) || defined(__NetBSD__) || defined(__OpenBSD__)) || defined(__sun))
