@@ -286,8 +286,12 @@ namespace {
     SDL_WINDOW_SKIP_TASKBAR | SDL_WINDOW_HIDDEN | ((ngs::fs::environment_get_variable("IMGUI_DIALOG_RESIZE") ==
     std::to_string(1)) ? SDL_WINDOW_RESIZABLE : 0) | ((ngs::fs::environment_get_variable("IMGUI_DIALOG_NOBORDER") ==
     std::to_string(1)) ? SDL_WINDOW_BORDERLESS : 0));
+    if (ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").empty())
     window = SDL_CreateWindow(title.c_str(),
     SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, IFD_DIALOG_WIDTH, IFD_DIALOG_HEIGHT, windowFlags);
+    else
+    window = SDL_CreateWindow(title.c_str(),
+    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, IFD_DIALOG_WIDTH, IFD_DIALOG_HEIGHT, windowFlags);
     if (window == nullptr) return "";
     dialog = window;
     if (ngs::fs::environment_get_variable("IMGUI_DIALOG_FULLSCREEN") == std::to_string(1))
@@ -499,6 +503,7 @@ namespace {
           ngs::fs::environment_get_variable("IMGUI_DIALOG_HEIGHT").empty() &&
           (type == openFile || type == openFiles || type == saveFile || type == selectFolder)) {
           SDL_SetWindowSize(window, 640, 360);
+          if (ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").empty())
           SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
         }
         #if defined(_WIN32)
