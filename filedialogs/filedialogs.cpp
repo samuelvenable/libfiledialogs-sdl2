@@ -503,7 +503,7 @@ namespace {
           ngs::fs::environment_get_variable("IMGUI_DIALOG_HEIGHT").empty() &&
           (type == openFile || type == openFiles || type == saveFile || type == selectFolder)) {
           SDL_SetWindowSize(window, 640, 360);
-          if (!ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").empty())
+          if (ngs::fs::environment_get_variable("IMGUI_DIALOG_PARENT").empty())
           SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
         }
         #if defined(_WIN32)
