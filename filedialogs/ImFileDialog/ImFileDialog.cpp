@@ -796,9 +796,9 @@ namespace ifd {
     std::error_code ec;
     auto exists = [](ghc::filesystem::path path) {
       #if defined(_WIN32)
-      return (!path.wstring().empty() && path.is_absolute() && 
-      INVALID_FILE_ATTRIBUTES != GetFileAttributesW(path.wstring().c_str()) && 
-      GetLastError() != ERROR_FILE_NOT_FOUND);
+      return (!path.wstring().empty() && path.is_absolute() && path.wstring().length() >= 2 &&
+      (!(path.wstring()[0] == '\\' && path.wstring()[1] != '\\')) && INVALID_FILE_ATTRIBUTES != 
+      GetFileAttributesW(path.wstring().c_str()) && GetLastError() != ERROR_FILE_NOT_FOUND);
       #else
       std::error_code ec;
       return (!path.u8string().empty() && path.is_absolute() && 
@@ -2002,5 +2002,6 @@ namespace ifd {
       m_isOpen = false;
   }
 }
+
 
 
